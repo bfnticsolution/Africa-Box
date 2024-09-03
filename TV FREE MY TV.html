@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html>
+	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+	
+<head>
+<style>
+
+
+ body {
+		 margin: auto;
+				padding: 0;
+		        background-image: linear-gradient(to right, #190736, #c86509);
+		       	background-position: center;
+		         position: relative;
+		  		font-family: sans-serif;
+                padding: 0px;
+  }
+	
+.grid-container {
+      display: grid;
+	  justify-content: center;
+      grid-template-columns:  repeat(3,1fr);
+	   grid-gap:5px 5px;
+       padding: 10px;		
+}
+	.grid1-container {
+      display: grid;
+	  background-color: background-color: #0a0a0f;
+	  justify-content: center;
+      grid-template-columns:  repeat(1,1fr);
+	   grid-gap:10px;
+		
+		color: white;
+       padding: 0px;		
+}
+	
+.h1 {
+    color: #ae0808;
+  text-align: center;
+	margin-top: 1px;
+	font-weight: bold;
+}
+	
+h2 {
+	text-align: center;
+	margin-top: 0.5px;
+	font-size: 10px;
+	color: #fafafa;
+	font-family: "Airarabia", Sans-serif;
+	font-weight: bold;
+	}
+
+button{
+    border-radius: 20px ;
+	background-image: linear-gradient(to right, #c86509, #190736);
+    border-color: #fefbfb;
+	padding: 1px;
+    margin:1px;
+    height:140px;
+    width: 110px;
+	
+    }
+
+	.buttons{
+    border-radius: 20px ;
+    border-color: #d5bc00;
+	padding: 1px;
+    margin:1px;
+   
+	
+    }
+    
+.buttons {
+    text-align:center;} 
+    {display:block;
+    }
+button:active{
+    border:2px solid rgb(55, 163, 1);
+} 
+
+.container1 {
+    text-align: center;
+}
+
+.image-buttons {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons-image {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.message-box,
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(251, 251, 251);
+    border: 5px solid #190736;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(252, 253, 253, 0.971);
+    width: 300px;
+    text-align: center;
+    color: #1a0329;
+}
+
+h3 {
+    color: #fdfcfd;
+    background-image: linear-gradient(to right, #16092d, #16092d);
+    border-radius: 30px;
+    border: 3px solid #c86509;
+    box-shadow: 0 0 10px #170b01(252, 253, 253, 0.971);
+
+}
+.hidden {
+    display: none;
+    color: #120c08;
+}
+
+.buttons-container {
+    margin-top: 20px;
+}
+
+.option-buttons {
+    background-color: #073465;
+    background-image: linear-gradient(to right, #16092d, #16092d);
+    border-color: #fefbfb;
+    border-radius: 20px ;
+	padding: 1px;
+    margin:10px;
+    height:40px;
+    width: 100px;
+    color: rgb(255, 246, 246);
+}
+
+.option-buttons:hover {
+    background-color: #0056b3;
+}
+
+.custom-alert h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #f5f5f5;
+}
+
+.custom-alert p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #04650a;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: rgb(136, 3, 3);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-buttonp {
+    border-radius: 20px ;
+	background-image: linear-gradient(to right, #fcf9f5, #fbfbfb);
+    border-color: #fefbfb;
+	padding: 10px;
+    margin:10px;
+    height:40px;
+    width: 100px;
+   
+}
+
+.popup-buttonp:hover {
+    background-color: #02191f;
+}
+</style>
+
+</head>
+
+
+
+<body>
+
+<div class="grid1-container">
+    
+
+<div>
+  
+	
+
+</div>
+	
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-cb458dc4-584f-4c24-83d8-311d0a5c1b0e" data-elfsight-app-lazy></div>
+	
+
+	
+<div align="center" class="button">
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>ALERTE ABONNEMENT</h2>
+            <p>Abonnez-vous pour profiter pleinement de tout le contenu de cette application.</p>
+            <button id="subscribeButton" class="popup-buttonp">Je m'abonne</button>
+            <button id="closeButton" class="popup-buttonp">Pas encore</button>
+        </div>
+    </div>
+
+    <div id="message-box" class="message-box hidden">
+        <h3>AUCUN ABONNEMENT !</h3>
+        <p><strong>  
+           <p> Veillez d'abord vous abonner pour suivre toutes ces chaînes.</p> </strong> <img src="https://www3.0zz0.com/2024/09/01/21/519909344.jpg" style="border-radius: 20px;" border-color="#f9f9f9"  color="rgb(255, 246, 246)" height="190px" width="300px"  vspace="5px" align="center"</p>
+           <div class="buttons-container">
+            <a href="https://api.whatsapp.com/message/Q4INQPTOMIDQD1?autoload=1&app_absent=0">
+            <button class="option-buttons" onclick="subscribe()">JE M'ABONNE</button>
+        </a>
+        <a href="#">
+            <button class="option-buttons" onclick="subscribe()">Pas encore</button>
+        </a>
+        </div>
+    </div>
+    <div id="custom-alert" class="custom-alert hidden">
+        <h3>SERVICE CLIENT</h3>
+        <p>Nous vous remercions pour votre choix! !</p>
+        <button class="option-buttons" onclick="closeAlert()">Fermer</button>
+    </div>
+
+<button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/353036951.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 1</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www3.0zz0.com/2024/08/14/11/685510529.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 2</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/510408655.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 3</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/547181901.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 4</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www3.0zz0.com/2024/08/14/11/134116269.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 5</h2></button>
+                                        
+
+<button onclick="window.open('go:bfinfo')">
+                                                        <img src="https://www12.0zz0.com/2024/08/02/17/918060545.png" 
+                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑BF INFO</h2></button>
+
+                                            <button onclick="window.open('go:rtb')">
+                                                <img src="https://www7.0zz0.com/2024/08/02/11/333373841.png" 
+                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>🛑RTB</h2></button>
+
+<button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/02/11/106302678.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>BF1 TV</h2></button>
+
+
+<button onclick="window.open('go:dbm')">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/296747703.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑DBM</h2></button>
+                                
+                                
+                                <button onclick="window.open('go:lntv')">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/217467258.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑LNTV</h2></button>
+
+                                    <button onclick="window.open('go:rti1')">
+                                            <img src="https://www10.0zz0.com/2024/08/02/11/153609319.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑RTI 1</h2></button>
+
+                                            <button onclick="showMessage()">
+                                                <img src="https://www10.0zz0.com/2024/08/02/17/880415484.png" 
+                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>RTI 2</h2></button>
+
+<button onclick="showMessage()">
+                                                    <img src="https://www8.0zz0.com/2024/08/02/17/848624392.png" 
+                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>LA 3</h2></button>
+
+<button onclick="window.open('go:africanw')">
+                                                    <img src="https://www12.0zz0.com/2024/08/03/23/490994309.png" 
+                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑AFRICANEWS</h2></button>
+
+                                                    <button onclick="window.open('go:bblack')">
+                                                        <img src="https://www6.0zz0.com/2024/08/03/23/921541920.png" 
+                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑BBLACK!</h2></button>
+
+<button onclick="showMessage()">
+                                            <img src="https://www3.0zz0.com/2024/08/02/17/771903257.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>A+ IVOIRE</h2></button>
+
+<button onclick="showMessage()">
+                                        <img src="https://www7.0zz0.com/2024/08/02/19/342432574.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>A+</h2></button>
+
+<button onclick="showMessage()">
+                            <img src="https://www8.0zz0.com/2024/08/02/14/226434745.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NOVELAS</h2></button>
+                        
+                            <button onclick="showMessage()">
+                                <img src="https://www8.0zz0.com/2024/08/02/14/339086449.png" 
+                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NOLLYWOOD</h2></button>
+
+                                <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/02/14/674631264.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NOLLY EPIC</h2></button>
+
+<button onclick="showMessage()">
+                                    <img src="https://www8.0zz0.com/2024/08/02/11/529794985.png" 
+                                    style="border-radius:8px;" height="100px" width="90px" vspace="5px"><h2>ORTM 1</h2></button>
+
+<button onclick="showMessage()">
+                                        <img src="https://www3.0zz0.com/2024/08/03/23/992357632.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>RTN</h2></button>
+<button onclick="showMessage()">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/299958314.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>RTS 1</h2></button>
+                                
+                                
+                                <button onclick="showMessage()">
+                            <img src="https://www9.0zz0.com/2024/08/05/15/275560846.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>RTS 2</h2></button>
+                                        
+                                    <button onclick="window.open('go:infosport')">
+                                                                                                                                    <img src="https://www9.0zz0.com/2024/08/02/19/664236517.png" 
+                                                                                                                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>🛑INFOSPORT+</h2></button>
+                                                                        
+                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                        <img src="https://www9.0zz0.com/2024/08/02/19/626114773.png" 
+                                                                                                                                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ 360</h2></button>
+                                                                        
+                                                                                                                                        <button onclick="window.open('go:canalsport')">
+                                                                                                                                            <img src="https://www11.0zz0.com/2024/08/02/19/428153634.png" 
+                                                                                                                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ SPORT</h2></button>
+                                                                        
+                                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                                <img src="https://www4.0zz0.com/2024/08/02/19/662902862.png" 
+                                                                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ SPORT1</h2></button>
+                                                                        
+                                                                                                                                        <button onclick="showMessage()">
+                                                                                                                                            <img src="https://www9.0zz0.com/2024/08/02/19/448373422.png" 
+                                                                                                                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ SPORT2</h2></button>
+                                                                        
+                                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                                <img src="https://www12.0zz0.com/2024/08/02/19/710696525.png" 
+                                                                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ SPORT 3</h2></button>
+                                                                        
+                                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                                <img src="https://www9.0zz0.com/2024/08/02/19/765468348.png" 
+                                                                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ SPORT4</h2></button>
+                                                                        
+                                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                                    <img src="https://www4.0zz0.com/2024/08/02/19/962099565.png" 
+                                                                                                                                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ SPORT 5</h2></button>
+
+                                                                                                                                                                         <button onclick="showMessage()">
+                                                                                                                                                                                <img src="https://www4.0zz0.com/2024/08/02/19/970018965.png" 
+                                                                                                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>EUROSPORT 1</h2></button>
+
+                                                                                                                                                                                <br>----------------------                                                                                 
+
+                                        <br> CHAINES BEIN SPORT EN DIRECT </br>
+                                                                                                                                                                                <a href="https://wa.me/22670959953?text=Je%20souhaite%20m%27abonner%20%C3%A0%20*MY%20TV*" target="_blank"> 
+                                                                                                                                                                                    <img src="https://huimin-static.oss-cn-hangzhou.aliyuncs.com/hm/33426ebb998f817184f98c362c656ca0.gif" style="border-radius: 20px;" height="190px" width="380px"  vspace="5px" align="center" alt="Match à suivre sur l'application">
+                                                                                                                                                                                  </a>
+                                                                                                                                                                                  
+                                                                        
+                                                                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                                                                    <img src="https://www4.0zz0.com/2024/08/02/19/632959211.png" 
+                                                                                                                                                                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>EUROSPORT 2</h2></button>
+                                                                        
+                                                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                                                        <img src="https://www8.0zz0.com/2024/08/02/20/534618143.png" 
+                                                                                                                                                                                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>beIN SPORT 1</h2></button>
+                                                                        
+                                                                                                                                                                                        <button onclick="showMessage()">
+                                                                                                                                                                                            <img src="https://www4.0zz0.com/2024/08/02/19/584244375.png" 
+                                                                                                                                                                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>beIN SPORTS 2</h2></button>
+                                                                        
+                                                                                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                                                                                <img src="https://www12.0zz0.com/2024/08/02/20/191541997.png" 
+                                                                                                                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>beIN SPORT 3</h2></button>
+                                                                        
+                                                                                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                                                                                    <img src="https://www7.0zz0.com/2024/08/04/16/470754045.png" 
+                                                                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>beIN MAX 4</h2></button>
+                                                                                                                                                                                                        
+                                                                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                                                                    <img src="https://www10.0zz0.com/2024/08/04/16/203037067.png" 
+                                                                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>beIN MAX 5</h2></button>	
+                                                                                                                                                                                                        
+                                                                                                                                                                                                
+                                                                                                                                                                                                        <button onclick="showMessage()">
+                                                                                                                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/923922490.png" 
+                                                                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>beIN MAX 6</h2></button>
+                                                                                                                                                                                                    
+                                                                                                                                                                                                    
+                                                                                                                                                                                                        <button onclick="showMessage()">
+                                                                                                                                                                                                    <img src="https://www7.0zz0.com/2024/08/04/16/761214351.png" 
+                                                                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>beIN MAX 7</h2></button>
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                       
+                                                                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                                                                    <img src="https://www10.0zz0.com/2024/08/04/16/490652275.png" 
+                                                                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>beIN MAX 8</h2></button>
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                                                                    <img src="https://www10.0zz0.com/2024/08/04/16/484553568.png" 
+                                                                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>beIN MAX 9</h2></button>
+
+                                                                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                                                                        <img src="https://www11.0zz0.com/2024/08/04/16/564145867.png" 
+                                                                                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>beIN MAX 10</h2></button>
+                                                                            
+                                                                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                                                                        <img src="https://www11.0zz0.com/2024/08/03/16/305941677.png" 
+                                                                                                                                                                                                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>RMC SPORT 1</h2></button>
+                                                                                                                                                                                
+                                                                                                                                                                                                        <button onclick="showMessage()">
+                                                                                                                                                                                                            <img src="https://www11.0zz0.com/2024/08/03/16/221945841.png" 
+                                                                                                                                                                                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>RMC SPORT 2</h2></button>
+                                        
+                                    
+
+<button onclick="showMessage()">
+                                        <img src="https://www12.0zz0.com/2024/08/03/23/327574881.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>C3 BENIN</h2></button>
+                                    
+                                        <button onclick="window.open('go:tvt')">
+                                            <img src="https://www12.0zz0.com/2024/08/03/23/511263635.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑TVT</h2></button>
+                                    
+                                            <button onclick="window.open('go:media1')">
+                                                <img src="https://www12.0zz0.com/2024/08/03/23/662595454.png" 
+                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑MEDIA 1</h2></button>
+
+                                                <button onclick="showMessage()">
+                                                    <img src="https://www9.0zz0.com/2024/08/03/21/767280668.png" 
+                                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>AFRICA 24</h2></button>                                             
+                
+                    <button onclick="showMessage()">
+                        <img src="https://www8.0zz0.com/2024/08/05/16/497310944.png" 
+                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AL BAYANE</h2></button>
+                
+                        <button onclick="showMessage()">
+                            <img src="https://www8.0zz0.com/2024/08/05/16/618575288.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>PASSION NOVE</h2></button>
+
+                                     <button onclick="showMessage()">
+                            <img src="https://www3.0zz0.com/2024/08/02/17/898040584.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>LIFE TV</h2></button>
+                
+                        <button onclick="showMessage()">
+                            <img src="https://www8.0zz0.com/2024/08/05/15/232140954.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>MOURIDE TV</h2></button>
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www8.0zz0.com/2024/08/05/15/503457039.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CHRIST LIVE</h2></button>
+
+                            <button onclick="window.open('go:benietv')">
+                                <img src="https://www3.0zz0.com/2024/08/02/17/512588113.png" 
+                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑BENIE TV</h2></button>
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www8.0zz0.com/2024/08/05/15/234659897.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>BFM TECH</h2></button>
+                                
+                            <button onclick="window.open('go:telemaroc')">
+                            <img src="https://www8.0zz0.com/2024/08/05/15/976364627.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑TELE MAROC</h2></button>
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/451472405.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>DIRECT 7</h2></button>	
+                                
+                                <button onclick="window.open('go:novelatv')">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/118839256.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑NOVELAS CH</h2></button>                        
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/362250090.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>GUILLI</h2></button>
+                                
+                                
+                            <button onclick="window.open('go:bfmparis')">
+                            <img src="https://www6.0zz0.com/2024/08/05/15/331132446.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑BFM PARIS</h2></button>
+                            
+                            <button onclick="window.open('go:bfmvar')">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/476524380.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑BFM VAR</h2></button>
+
+<button onclick="window.open('go:fr2')">
+                                        <img src="https://www12.0zz0.com/2024/08/03/23/833620670.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑FRANCE 2</h2></button>
+
+<button onclick="window.open('go:rmcdisco')">
+                            <img src="https://www6.0zz0.com/2024/08/05/14/142988663.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑RMC DISCO</h2></button>
+
+                                
+                                        <button onclick="window.open('go:alphao')">
+                                            <img src="https://www3.0zz0.com/2024/08/05/16/169556787.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑ALPHA OMEGA</h2></button>
+                
+                        <button onclick="showMessage()">
+                            <img src="https://www6.0zz0.com/2024/08/05/15/997547554.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px">2M</h2></button>
+                                
+                            <button onclick="window.open('go:mader')">
+                            <img src="https://www8.0zz0.com/2024/08/05/15/680928644.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑MADER TV</h2></button>
+                                
+                            <button onclick="window.open('go:bfm')">
+                            <img src="https://www8.0zz0.com/2024/08/05/15/591571849.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑BFM TV</h2></button>
+
+                            <button onclick="window.open('go:cdirect')">
+                                <img src="https://www8.0zz0.com/2024/08/02/13/384973650.png" 
+                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑C DIRECT</h2></button>
+                            
+                                <button onclick="showMessage()">
+                                    <img src="https://www8.0zz0.com/2024/08/02/13/493252410.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TELE CONGO</h2></button>
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www8.0zz0.com/2024/08/05/15/968068430.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NINA NOVELAS</h2></button>
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www12.0zz0.com/2024/08/05/15/752089768.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NASATV</h2></button>	
+                                
+                                
+                                <button onclick="showMessage()">
+                            <img src="https://www3.0zz0.com/2024/08/05/15/244770831.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CAILLOU</h2></button>
+                            
+                            
+                                <button onclick="showMessage()">
+                            <img src="https://www3.0zz0.com/2024/08/05/14/348101702.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ETELE</h2></button>
+                                
+                                
+                                <button onclick="window.open('go:cgtnfr')">
+                            <img src="https://www3.0zz0.com/2024/08/05/14/802893392.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑CGTV FRANCE</h2></button>
+
+<button onclick="showMessage()">
+        <img src="https://www11.0zz0.com/2024/08/02/19/401358724.png" 
+        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>ZEE MAGIC</h2></button>
+
+        <button onclick="showMessage()">
+            <img src="https://www4.0zz0.com/2024/08/02/19/946225045.png" 
+            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>ACTION</h2></button>
+
+            <button onclick="showMessage()">
+                <img src="https://www4.0zz0.com/2024/08/02/19/658699334.png" 
+                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>TF1</h2></button>
+
+                <button onclick="showMessage()">
+                    <img src="https://www4.0zz0.com/2024/08/02/19/249284201.png" 
+                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>TF1 SERIES</h2></button>
+
+                    <button onclick="showMessage()">
+                        <img src="https://www4.0zz0.com/2024/08/03/21/782764156.png" 
+                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>SYFY</h2></button>
+
+
+	<br> SUIVEZ VOS CHAINES EN DIRECT </br>
+    <a href="https://wa.me/22670959953?text=Je%20souhaite%20m%27abonner%20%C3%A0%20*MY%20TV*" target="_blank"> 
+        <img src="https://image.noelshack.com/fichiers/2024/34/5/1724426526-gif-240823-152034.gif" style="border-radius: 20px;" height="160px" width="380px"  vspace="5px" align="center" alt="Match à suivre sur l'application">
+      </a>
+<div id="buttons-list">	
+    
+
+                                        
+                                
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www6.0zz0.com/2024/08/05/14/753420268.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>BEB TV</h2></button>
+                                
+                                
+                            <button onclick="showMessage()">
+                            <img src="https://www6.0zz0.com/2024/08/05/14/759426262.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>FRANCE24</h2></button>
+                                
+                            
+                            <button onclick="window.open('go:m24')">
+                            <img src="https://www6.0zz0.com/2024/08/05/14/702067846.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>🛑M24</h2></button>
+
+
+    
+                        <button onclick="showMessage()">
+                            <img src="https://www12.0zz0.com/2024/08/02/19/789320552.png" 
+                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>AB1</h2></button>
+
+                        
+
+                       
+                
+                                <button onclick="showMessage()">
+                                    <img src="https://www9.0zz0.com/2024/08/02/14/300570449.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TRACE AFRICA</h2></button>
+                
+                                  
+            
+                                       
+                                    
+                                    <button onclick="showMessage()">
+                                        <img src="https://www12.0zz0.com/2024/08/02/11/394695009.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ORTM 2</h2></button>
+                                    
+                                    
+                                 
+                                    
+                                    
+                                        <button onclick="showMessage()">
+                                            <img src="https://www10.0zz0.com/2024/08/02/17/673607618.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>BUSINESS24</h2></button>
+                                    
+                                            
+                                                <button onclick="showMessage()">
+                                                    <img src="https://www8.0zz0.com/2024/08/02/17/856891724.png" 
+                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>OMEGA TV</h2></button>
+                                    
+                                   
+                
+                            <button onclick="showMessage()">
+                                <img src="https://www8.0zz0.com/2024/08/05/15/607622723.png" 
+                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>LERAL TV</h2></button>
+                
+                       
+                                
+                            <button onclick="window.open('go:cdirect')">
+                                <img src="https://www11.0zz0.com/2024/08/05/15/156663833.png" 
+                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>WALF TV</h2></button>
+                            
+                                <button onclick="window.open('go:telecongo')">
+                                    <img src="https://www11.0zz0.com/2024/08/05/15/552415747.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CINAF</h2></button>
+
+                                    
+                                
+                                
+                                <button onclick="showMessage()">
+                            <img src="https://www6.0zz0.com/2024/08/05/14/411724419.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY NEWS</h2></button>
+                            
+                            
+                          
+                                    
+                                                    <button onclick="showMessage()">
+                                                        <img src="https://www6.0zz0.com/2024/08/03/23/996804151.png" 
+                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CRTV SPORTS</h2></button>
+                                    
+                                                        <button onclick="showMessage()">
+                                                            <img src="https://www6.0zz0.com/2024/08/03/23/866055109.png" 
+                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CRTV NEWS</h2></button>
+                                    
+                                    <button onclick="showMessage()">
+                                    <img src="https://www11.0zz0.com/2024/08/02/12/251685056.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CANAL 2</h2></button>
+
+                            <button onclick="showMessage()">
+                                <img src="https://www11.0zz0.com/2024/08/03/16/993720971.png" 
+                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>W9</h2></button>
+
+                                <button onclick="showMessage()">
+                                    <img src="https://www11.0zz0.com/2024/08/03/16/769196937.png" 
+                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>NAT GEO</h2></button>
+
+                                    <button onclick="showMessage()">
+                                        <img src="https://www11.0zz0.com/2024/08/03/16/476399976.png" 
+                                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>ANIMAUX</h2></button>
+
+                                        <button onclick="showMessage()">
+                                            <img src="https://www11.0zz0.com/2024/08/03/16/237328694.png" 
+                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>INVEST DISCO</h2></button>
+
+                    <button onclick="window.open('go:tfx')">
+                        <img src="https://www4.0zz0.com/2024/08/02/19/731635967.png" 
+                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>TFX</h2></button>
+
+                        <button onclick="showMessage()">
+                            <img src="https://www12.0zz0.com/2024/08/03/16/532612868.png" 
+                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>HISTOIRE</h2></button>
+
+                            <button onclick="showMessage()">
+                                <img src="https://www12.0zz0.com/2024/08/03/16/470499914.png" 
+                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>TMC</h2></button>
+
+                                <button onclick="showMessage()">
+                                    <img src="https://www6.0zz0.com/2024/08/03/17/252524174.png" 
+                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>RTL9</h2></button>
+
+                                    <button onclick="showMessage()">
+                                        <img src="https://www3.0zz0.com/2024/08/03/17/301082467.png" 
+                                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>NAT GEO WILD</h2></button>
+
+                                        <button onclick="showMessage()">
+                                            <img src="https://www9.0zz0.com/2024/08/03/21/767280668.png" 
+                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>AFRICA 24</h2></button>
+
+                                            <button onclick="showMessage()">
+                                                <img src="https://www12.0zz0.com/2024/08/03/21/575996831.png" 
+                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>VOX AFRICA</h2></button>
+
+                        <button onclick="showMessage()">
+                            <img src="https://www4.0zz0.com/2024/08/02/19/632774996.png" 
+                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>M6</h2></button>
+
+                            <button onclick="showMessage()">
+                                <img src="https://www4.0zz0.com/2024/08/02/19/730659120.png" 
+                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>ARTE</h2></button>
+
+                                <button onclick="window.open('go:fr3')">
+                                    <img src="https://www4.0zz0.com/2024/08/02/19/784108665.png" 
+                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>FRANCE 3</h2></button>
+
+                                            <button onclick="showMessage()">
+                                                <img src="https://www12.0zz0.com/2024/08/02/19/273842748.png" 
+                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>FRANCE 5</h2></button>
+    
+
+        <button onclick="showMessage()">
+            <img src="https://www12.0zz0.com/2024/08/03/23/726180874.png" 
+            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CNEWS</h2></button>
+
+            <button onclick="showMessage()">
+                <img src="https://www12.0zz0.com/2024/08/03/23/306743068.png" 
+                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>I24</h2></button>
+
+            
+
+                    <button onclick="showMessage()">
+                        <img src="https://www3.0zz0.com/2024/08/03/23/615808054.png" 
+                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>B-ONE</h2></button>
+
+
+                        <button onclick="showMessage()">
+                            <img src="https://www3.0zz0.com/2024/08/03/23/543136644.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TIVI5</h2></button>
+
+                            <button onclick="showMessage()">
+                                <img src="https://www3.0zz0.com/2024/08/03/23/357295681.png" 
+                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TRACE TERANGA</h2></button>
+
+                                <button onclick="showMessage()">
+                                    <img src="https://www3.0zz0.com/2024/08/03/23/797004496.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ PL</h2></button>
+
+                                    <button onclick="showMessage()">
+                                        <img src="https://www8.0zz0.com/2024/08/03/23/543547411.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TRACE TROPICAL</h2></button>
+
+                                        <button onclick="showMessage()">
+                                            <img src="https://www8.0zz0.com/2024/08/03/23/960654091.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>13EME RUE</h2></button>
+
+                                            <button onclick="showMessage()">
+                                                <img src="https://www9.0zz0.com/2024/08/03/23/157251746.png" 
+                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ARWA24</h2></button>
+
+            <button onclick="showMessage()">
+                <img src="https://www3.0zz0.com/2024/08/05/16/216061406.png" 
+                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>A+ BENIN</h2></button>
+
+                <button onclick="window.open('go:fr2')">
+                    <img src="https://www3.0zz0.com/2024/08/05/16/495240930.png" 
+                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ZEECINEMA</h2></button>
+
+        
+
+                                <button onclick="showMessage()">
+                                    <img src="https://www6.0zz0.com/2024/08/03/23/458077763.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TELESUD</h2></button>
+
+                                    
+
+                            <button onclick="showMessage()">
+                                <img src="https://www11.0zz0.com/2024/08/02/17/919366051.png" 
+                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TELE AFRICA</h2></button>
+
+                                <button onclick="showMessage()">
+                                    <img src="https://www7.0zz0.com/2024/08/02/18/948066309.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>RENOUVEAU TV</h2></button>
+
+                                    <button onclick="showMessage()">
+                                        <img src="https://www6.0zz0.com/2024/08/02/18/552654900.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>MANDE TV</h2></button>
+
+                                        <button onclick="showMessage()">
+                                            <img src="https://www11.0zz0.com/2024/08/02/18/285915653.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NIETA TV</h2></button>
+	
+<button onclick="showMessage()">
+<img src="https://www12.0zz0.com/2024/08/04/11/970595559.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CRIME DIST</h2></button>
+	
+<button onclick="showMessage()">
+<img src="https://www12.0zz0.com/2024/08/04/11/814588157.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>MTV HITS</h2></button>
+	
+<button onclick="showMessage()">
+<img src="https://www12.0zz0.com/2024/08/04/11/612809235.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NATHAN TV</h2></button>
+	
+<button onclick="showMessage()">
+<img src="https://www12.0zz0.com/2024/08/04/11/579418691.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TRACE AFRIKOR</h2></button>
+	
+<button onclick="showMessage()">
+<img src="https://www12.0zz0.com/2024/08/04/11/924910335.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NICKELODEON JR</h2></button>	
+	
+	<button onclick="showMessage()">
+<img src="https://www7.0zz0.com/2024/08/04/11/716283389.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CUISINE.TV</h2></button>
+
+
+	<button onclick="showMessage()">
+<img src="https://www7.0zz0.com/2024/08/04/11/455258145.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>E!</h2></button>
+	
+	
+	<button onclick="showMessage()">
+<img src="https://www11.0zz0.com/2024/08/04/11/368368807.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TREK</h2></button>
+	
+	
+<button onclick="showMessage()">
+<img src="https://www12.0zz0.com/2024/08/04/11/542272144.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TRACE GOSPEL</h2></button>
+	
+	
+<button onclick="showMessage()">
+<img src="https://www6.0zz0.com/2024/08/02/13/551934770.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>DSTV</h2></button>
+	
+
+<button onclick="showMessage()">
+<img src="https://www3.0zz0.com/2024/08/02/13/311097832.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SEN TV</h2></button>
+	
+	
+	<button onclick="showMessage()">
+<img src="https://www3.0zz0.com/2024/08/02/13/942658676.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TFM</h2></button>
+
+
+<button onclick="showMessage()">
+<img src="https://www8.0zz0.com/2024/08/02/13/785865116.png" 
+style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SUNU YEUF</h2></button>
+
+                        <button onclick="showMessage()">
+                            <img src="https://www12.0zz0.com/2024/08/02/17/597677958.png" 
+                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>3TV</h2></button>
+
+                                <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/02/17/279635078.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SAVANE TV</h2></button>
+
+                                    <button onclick="showMessage()">
+                                        <img src="https://www10.0zz0.com/2024/08/02/17/453115313.png" 
+                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CVK</h2></button>
+
+                                        <button onclick="showMessage()">
+                                            <img src="https://www10.0zz0.com/2024/08/02/17/717904421.png" 
+                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CANAL3</h2></button>
+
+                                            <button onclick="showMessage()">
+                                                <img src="https://www10.0zz0.com/2024/08/02/17/966120198.png" 
+                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TVZ AFRICA</h2></button>
+
+                                                <button onclick="showMessage()">
+                                                    <img src="https://www12.0zz0.com/2024/08/02/17/556324312.png" 
+                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>IMPACT TV</h2></button>
+
+                                                    <button onclick="showMessage()">
+                                                        <img src="https://www12.0zz0.com/2024/08/02/17/522564291.png" 
+                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>LCA</h2></button>
+
+                                                        <button onclick="showMessage()">
+                                                            <img src="https://www3.0zz0.com/2024/08/02/17/722755099.png" 
+                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AL BAYANE</h2></button>
+
+                                                            <button onclick="showMessage()">
+                                                                <img src="https://www3.0zz0.com/2024/08/02/17/387005080.png" 
+                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>GO AFRICA</h2></button>
+
+                                                                <button onclick="showMessage()">
+                                                                    <img src="https://www3.0zz0.com/2024/08/02/17/510326615.png" 
+                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>GABON CULT</h2></button>
+
+                                                                    <button onclick="showMessage()">
+                                                                        <img src="https://www3.0zz0.com/2024/08/02/17/763768188.png" 
+                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>7INFO</h2></button>
+
+                                                                    
+
+                                                                            <button onclick="showMessage()">
+                                                                                <img src="https://www3.0zz0.com/2024/08/02/17/819594372.png" 
+                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>GABON 1ERE</h2></button>
+
+                                                                                <button onclick="showMessage()">
+                                                                                    <img src="https://www3.0zz0.com/2024/08/04/11/109156741.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>PIWI+</h2></button>
+                                                                                        
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www3.0zz0.com/2024/08/04/11/493516697.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>DISNEY JR</h2></button>
+                                                                                        
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www7.0zz0.com/2024/08/04/11/104445686.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>RTNC</h2></button>
+                                                                                        
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www7.0zz0.com/2024/08/04/11/565727051.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>TIJI</h2></button>
+                                                                                        
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www7.0zz0.com/2024/08/04/11/540441399.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>MEZZO</h2></button>	
+                                                                                        
+                                                                                        
+                                                                                        <button onclick="showMessage()">
+                                                                                    <img src="https://www10.0zz0.com/2024/08/04/11/731396589.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NICKELODEON</h2></button>
+                                                                                    
+                                                                                    
+                                                                                        <button onclick="showMessage()">
+                                                                                    <img src="https://www10.0zz0.com/2024/08/04/11/793716263.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SCIENCE&VIE</h2></button>
+                                                                                        
+                                                                                        
+                                                                                        <button onclick="showMessage()">
+                                                                                    <img src="https://www10.0zz0.com/2024/08/04/11/782380871.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>BBC WN</h2></button>
+                                                                                        
+                                                                                        
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www11.0zz0.com/2024/08/04/11/641202747.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CSTAR</h2></button>
+                                                                                        
+                                                                                        
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www11.0zz0.com/2024/08/04/11/849275723.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ANTENNE TV</h2></button>
+                                                                                        
+                                                                                    
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www12.0zz0.com/2024/08/04/11/925028759.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>LIBIDO</h2></button>
+                                                                                        
+                                                                                        
+                                                                                        <button onclick="showMessage()">
+                                                                                    <img src="https://www4.0zz0.com/2024/08/04/11/207590336.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>EMCI</h2></button>
+                                                                                    
+                                                                                    
+                                                                                    <button onclick="showMessage()">
+                                                                                    <img src="https://www8.0zz0.com/2024/08/04/15/625086108.png" 
+                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>OCS CHOC</h2></button>
+
+                                                                                    <button onclick="showMessage()">
+                                                                                        <img src="https://www8.0zz0.com/2024/08/04/15/259223734.png" 
+                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>OCS GEANTS</h2></button>
+                                                                                            
+                                                                                        <button onclick="showMessage()">
+                                                                                        <img src="https://www8.0zz0.com/2024/08/04/15/813772609.png" 
+                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>OCS MAX</h2></button>
+                                                                                            
+                                                                                        <button onclick="showMessage()">
+                                                                                        <img src="https://www9.0zz0.com/2024/08/04/15/647155103.png" 
+                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>OCS PULP</h2></button>
+                                                                                            
+                                                                                
+                                                                                            
+                                                                                        <button onclick="showMessage()">
+                                                                                            <img src="https://www11.0zz0.com/2024/08/04/16/426250463.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CINE+ PREMIER</h2></button>
+                                                                                                
+                                                                            
+                                                                                            
+                                                                                            <button onclick="showMessage()">
+                                                                                        <img src="https://www11.0zz0.com/2024/08/04/16/968724458.png" 
+                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CINE+ CLUB</h2></button>
+                                                                                        
+                                                                                        
+                                                                                        <button onclick="showMessage()">
+                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/647258077.png" 
+                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CINE+</h2></button>
+
+                                                                                        <button onclick="showMessage()">
+                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/725955039.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CINE+ EMOTION</h2></button>
+                                                                                                
+                                                                                            <button onclick="showMessage()">
+                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/683859201.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ ELLES</h2></button>
+                                                                                                
+                                                                                            <button onclick="showMessage()">
+                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/486000238.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ MOTOGP</h2></button>
+                                                                                                
+                                                                                            <button onclick="showMessage()">
+                                                                                            <img src="https://www12.0zz0.com/2024/08/04/16/959586212.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ COMEDIE</h2></button>
+                                                                                                
+                                                                                            <button onclick="showMessage()">
+                                                                                            <img src="https://www12.0zz0.com/2024/08/04/16/948418337.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ FORMULA1</h2></button>	
+
+                                                                                            <button onclick="showMessage()">
+                                                                                                <img src="https://www3.0zz0.com/2024/08/03/21/543282630.png" 
+                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ ACTION</h2></button>
+                                            
+                                                                                                <button onclick="showMessage()">
+                                                                                                    <img src="https://www10.0zz0.com/2024/08/03/21/704724425.png" 
+                                                                                                    style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ POP</h2></button>
+                                            
+                                                                                                    <button onclick="showMessage()">
+                                                                                                        <img src="https://www4.0zz0.com/2024/08/02/19/480616564.png" 
+                                                                                                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ DOCS</h2></button>
+                                            
+                                                                                                        <button onclick="showMessage()">
+                                                                                                            <img src="https://www4.0zz0.com/2024/08/02/19/286861514.png" 
+                                                                                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ CINEMA</h2></button>
+                                            
+                                                                                                            <button onclick="showMessage()">
+                                                                                                                <img src="https://www12.0zz0.com/2024/08/03/16/285854178.png" 
+                                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ SERIES</h2></button>
+                                            
+                                                                                                                    <button onclick="showMessage()">
+                                                                                                                        <img src="https://www11.0zz0.com/2024/08/02/19/221024550.png" 
+                                                                                                                        style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ FAMILY</h2></button>
+                                            
+                                                                                                                        <button onclick="showMessage()">
+                                                                                                                            <img src="https://www4.0zz0.com/2024/08/02/19/401786475.png" 
+                                                                                                                            style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ FR</h2></button>
+                                                                        
+                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                <img src="https://www9.0zz0.com/2024/08/02/19/330026206.png" 
+                                                                                                                                style="border-radius:1px;" height="100px" width="90px"  vspace="5px"><h2>CANAL+ KIDS</h2></button>
+                                                                                                
+                                           <br>----------------------
+                                        <br> CHAINES NEW WORLD EN DIRECT </br>
+                                                                                                                                                    <a href="https://wa.me/22670959953?text=Je%20souhaite%20m%27abonner%20%C3%A0%20*MY%20TV*" target="_blank"> 
+                                                                                                                                                        <img src=" https://j.gifs.com/BL4BD2.gif" style="border-radius: 20px;" height="190px" width="380px"  vspace="5px" align="center" alt="Match à suivre sur l'application">
+                                                                                                                                                      </a>
+                                                                                                                                                    
+<button onclick="window.open('go:nwinfosfr')">
+
+                                                                                                                                                        <img src="https://www4.0zz0.com/2024/08/14/11/274238876.png" 
+                                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NEW WORLD FR</h2></button>
+<button onclick="window.open('go:nwinfosen')">
+
+                                    <img src="https://www3.0zz0.com/2024/08/14/11/664426535.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW INFO EN</h2></button>
+
+<button onclick="showMessage()">
+                                    <img src="https://www4.0zz0.com/2024/08/14/11/936072741.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW MAGASINE</h2></button>
+
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/353036951.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2NW SPORT 1h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www3.0zz0.com/2024/08/14/11/685510529.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 2</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/510408655.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 3</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/547181901.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 4</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www3.0zz0.com/2024/08/14/11/134116269.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW SPORT 5</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/700493491.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW ECO</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www3.0zz0.com/2024/08/14/11/103111260.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW TRANS</h2></button>
+
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/608197522.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW CINEMA</h2></button>
+
+                                     <button onclick="showMessage()">
+                                    <img src="https://www12.0zz0.com/2024/08/14/11/544135806.png" 
+                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NW MUSIK</h2></button>                                                                                     
+                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 1</h2></button>
+
+                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 2</h2></button>
+
+                                                                                                    <button onclick="showMessage()">
+                                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 3</h2></button>
+    
+                                                                                                        <button onclick="showMessage()">
+                                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 4</h2></button>
+    
+                                                                                                            <button onclick="showMessage()">
+                                                                                                                <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 5</h2></button>
+    
+                                                                                                                <button onclick="showMessage()">
+                                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 6</h2></button>
+    
+                                                                                                                    <button onclick="showMessage()">
+                                                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 7</h2></button>
+    
+                                                                                                                        <button onclick="showMessage()">
+                                                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 8</h2></button>
+    
+                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 9</h2></button>
+    
+                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/884545934.png" 
+                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>AMAZON PRIME 10</h2></button>
+                                                                                                    
+                                                                                            
+                                                                                                <button onclick="showMessage()">
+                                                                                            <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 1</h2></button>
+                                                                                                
+                                                                                            <button onclick="showMessage()">
+                                                                                                <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 2</h2></button>
+
+                                                                                                <button onclick="showMessage()">
+                                                                                                    <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 3</h2></button>
+
+                                                                                                    <button onclick="showMessage()">
+                                                                                                        <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 4</h2></button>
+
+                                                                                                        <button onclick="showMessage()">
+                                                                                                            <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 5</h2></button>
+
+                                                                                                            <button onclick="showMessage()">
+                                                                                                                <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 6</h2></button>
+
+                                                                                                                <button onclick="showMessage()">
+                                                                                                                    <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 7</h2></button>
+
+                                                                                                                    <button onclick="showMessage()">
+                                                                                                                        <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 8</h2></button>
+
+                                                                                                                        <button onclick="showMessage()">
+                                                                                                                            <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 9</h2></button>
+
+                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                <img src="https://www3.0zz0.com/2024/08/04/16/116137231.png" 
+                                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>SKY SPORT 10</h2></button>
+
+                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                    <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 1</h2></button>
+                                        
+                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                        <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 2</h2></button>
+                                        
+                                                                                                                                        <button onclick="showMessage()">
+                                                                                                                                            <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 3</h2></button>
+                                        
+                                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                                <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 4</h2></button>
+                                        
+                                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                                    <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 5</h2></button>
+                                        
+                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                        <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 6</h2></button>
+                                        
+                                                                                                                                                        <button onclick="showMessage()">
+                                                                                                                                                            <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 7</h2></button>
+                                        
+                                                                                                                                                            <button onclick="showMessage()">
+                                                                                                                                                                <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 8</h2></button>
+                                        
+                                                                                                                                                                <button onclick="showMessage()">
+                                                                                                                                                                    <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 9</h2></button>
+                                                                                                                                                                    <button onclick="showMessage()">
+                                                                                                                                                                        <img src="https://www3.0zz0.com/2024/08/04/16/161723930.png" 
+                                                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>NETFLIX 10</h2></button>
+                                        
+                                                                                                
+                                                                                                <button onclick="window.open('go:18ans')">
+                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV</h2></button>
+
+                                                                                            <button onclick="window.open('go:18ans')">
+                                                                                                <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 1</h2></button>
+
+                                                                                                <button onclick="window.open('go:18ans')">
+                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 2</h2></button>
+
+                                                                                                    <button onclick="window.open('go:18ans')">
+                                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 3</h2></button>
+
+                                                                                                        <button onclick="window.open('go:18ans')">
+                                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 4</h2></button>
+
+                                                                                                            <button onclick="window.open('go:18ans')">
+                                                                                                                <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 5</h2></button>
+
+                                                                                                                <button onclick="window.open('go:18ans')">
+                                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 6</h2></button>
+
+                                                                                                                    <button onclick="window.open('go:18ans')">
+                                                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 7</h2></button>
+
+                                                                                                                        <button onclick="window.open('go:18ans')">
+                                                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 8</h2></button>
+
+                                                                                                                            <button onclick="window.open('go:18ans')">
+                                                                                                                                <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 9</h2></button>
+
+                                                                                                                                <button onclick="window.open('go:18ans')">
+                                                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 10</h2></button>
+
+                                                                                                                                    <button onclick="window.open('go:18ans')">
+                                                                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 11</h2></button>
+
+                                                                                                                                        <button onclick="window.open('go:18ans')">
+                                                                                                                                            <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                                            style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 12</h2></button>
+
+                                                                                                                                            <button onclick="window.open('go:18ans')">
+                                                                                                                                                <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                                                style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 13</h2></button>
+
+                                                                                                                                                <button onclick="window.open('go:18ans')">
+                                                                                                                                                    <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                                                    style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 14</h2></button>
+
+                                                                                                                                                    <button onclick="window.open('go:18ans')">
+                                                                                                                                                        <img src="https://www5.0zz0.com/2024/08/04/16/239998957.png" 
+                                                                                                                                                        style="border-radius:8px;" height="100px" width="90px"  vspace="5px"><h2>ADULT TV 15</h2></button>
+                                                                                                
+                                                                                            
+                                                                    
+                                                                            </div>
+</div>	
+<script>
+    let popup = document.getElementById('popup');
+let closeButton = document.getElementById('closeButton');
+let subscribeButton = document.getElementById('subscribeButton');
+
+let popupTimeout;
+let inactivityTimeout;
+
+// Afficher le pop-up après 30 secondes d'inactivité
+function showPopup() {
+    popup.style.display = 'flex';
+    popupTimeout = setTimeout(closePopup, 10000); // Ferme le pop-up après 10 secondes
+}
+
+// Fermer le pop-up
+function closePopup() {
+    popup.style.display = 'none';
+    clearTimeout(popupTimeout);
+    inactivityTimeout = setTimeout(showPopup, 30000); // Réaffiche le pop-up après 0,5 minute
+}
+
+// Écouteurs d'événements pour les boutons
+closeButton.addEventListener('click', closePopup);
+subscribeButton.addEventListener('click', function() {
+    window.location.href = 'https://api.whatsapp.com/message/Q4INQPTOMIDQD1?autoload=1&app_absent=0'; // Remplacez par votre lien
+});
+
+// Réinitialiser le timer d'inactivité à chaque action de l'utilisateur
+document.addEventListener('mousemove', resetInactivityTimer);
+document.addEventListener('keypress', resetInactivityTimer);
+
+function resetInactivityTimer() {
+    clearTimeout(inactivityTimeout);
+    inactivityTimeout = setTimeout(showPopup, 10000); // Affiche le pop-up après 10 secondes d'inactivité
+}
+
+// Initialisation
+inactivityTimeout = setTimeout(showPopup, 10000);
+
+    function showMessage() {
+    document.getElementById('message-box').classList.remove('hidden');
+}
+function subscribe() {
+    // Masquer la boîte de message initiale
+    document.getElementById('message-box').classList.add('hidden');
+    // Afficher la boîte de dialogue personnalisée
+    document.getElementById('custom-alert').classList.remove('hidden');
+}
+function notYet() {
+    alert("Vous avez choisi de ne pas vous abonner pour l'instant.");
+    // Masquer la boîte de message
+    document.getElementById('message-box').classList.add('hidden');
+}
+
+function closeAlert() {
+    // Masquer la boîte de dialogue personnalisée
+    document.getElementById('custom-alert').classList.add('hidden');
+}
+</script>
